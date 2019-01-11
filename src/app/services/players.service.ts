@@ -19,4 +19,8 @@ export class PlayersService{
       // delete a one item with index from players list
       this.players.splice(index, 1);
     }
+
+    addPlayer(name: string, eMail: string) {
+      this.players.push({name: name, eMail: eMail});
+    }
 }

@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { MatDialogModule } from "@angular/material";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { PlayersService } from './services/players.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -28,6 +29,9 @@ import { AddPlayer} from './components/add-player/add-player.component';
     GamePage,
     SelectPlayers,
     AddPlayer
+  ],
+  providers: [
+    PlayersService
   ],
   entryComponents: [
     AddPlayer
