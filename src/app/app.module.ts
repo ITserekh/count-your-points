@@ -9,11 +9,11 @@ import { PlayersService } from './services/players.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { SettingPage }from './pages/setting/setting-page.component';
-import { GamePage }   from './pages/game/game-page.component';
+import { SettingPageComponent }from './pages/setting/setting-page.component';
+import { GamePageComponent  }   from './pages/game/game-page.component';
 
-import { SelectPlayers} from './components/select-players/select-players.component';
-import { AddPlayer} from './components/add-player/add-player.component';
+import { SelectPlayersComponent  } from './components/select-players/select-players.component';
+import { AddPlayerComponent } from './components/add-player/add-player.component';
 
 @NgModule({
   imports: [
@@ -25,16 +25,16 @@ import { AddPlayer} from './components/add-player/add-player.component';
   ],
   declarations: [
     AppComponent,
-    SettingPage,
-    GamePage,
-    SelectPlayers,
-    AddPlayer
+    SettingPageComponent,
+    GamePageComponent,
+    SelectPlayersComponent,
+    AddPlayerComponent 
   ],
   providers: [
     PlayersService
   ],
   entryComponents: [
-    AddPlayer
+    AddPlayerComponent
   ],
   bootstrap: [AppComponent]
 })

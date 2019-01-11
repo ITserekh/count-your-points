@@ -9,23 +9,25 @@ import { PlayersService } from '../../services/players.service';
   templateUrl: './add-player.component.html',
   styleUrls: ['./add-player.component.scss'],
 })
-export class AddPlayer {
+export class AddPlayerComponent {
   name: string = '';
   eMail: string;
 
   constructor(private playersService: PlayersService,
-    public dialogRef: MatDialogRef<AddPlayer>) {}
+    public dialogRef: MatDialogRef<AddPlayerComponent>) {}
 
+  // add new player
   add() {
     if (this.checkName() && this.checkEmail()) {
-      console.log('here');
+      // close a add player modal dialog 
       this.dialogRef.close();
       this.playersService.addPlayer(this.name, this.eMail);
     } else {
-      console.log('Sonething wrong');
+      console.log('Something wrong');
     }
   }
 
+  // check name length
   checkName() {
     if (this.name.length > 0 && this.name.length < 20) {
       console.log(this.name.length);
@@ -36,10 +38,11 @@ export class AddPlayer {
     }
   }
 
+  // check e-mail with regExp
   checkEmail() {
     const reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
-    if (reg.test(this.eMail) || !this.eMail) {
+    if (reg.test(this.eMail) || !this.eMail) { // reg is true or don't put eMail 
       return true;
     } else {
       console.log('eMail is incorrect');

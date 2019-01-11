@@ -4,14 +4,14 @@ import { MatDialog, MatDialogConfig } from "@angular/material";
 
 import { Player} from '../../services/player';
 import { PlayersService } from '../../services/players.service';
-import { AddPlayer } from '../add-player/add-player.component';
+import { AddPlayerComponent } from '../add-player/add-player.component';
 
 @Component({
   selector: 'select-players',
   templateUrl: './select-players.component.html',
   styleUrls: ['./select-players.component.scss'],
 })
-export class SelectPlayers {
+export class SelectPlayersComponent {
   term: string = ''; // for storage a search query of player 
   players: Player[]; // players array to rendering list
 
@@ -44,6 +44,6 @@ export class SelectPlayers {
     dialogConfig.hasBackdrop = true;
     dialogConfig.width = '400px';
     //open dialog to add new player
-    this.dialog.open(AddPlayer, dialogConfig);
+    this.dialog.open(AddPlayerComponent, dialogConfig);
   }
 }
