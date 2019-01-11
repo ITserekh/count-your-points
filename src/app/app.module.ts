@@ -15,6 +15,7 @@ import { GamePageComponent  }   from './pages/game/game-page.component';
 import { SelectPlayersComponent  } from './components/select-players/select-players.component';
 import { AddPlayerComponent } from './components/add-player/add-player.component';
 import { ChooseGameComponent } from './components/choose-game/choose-game.component';
+import { LogoComponent } from './components/logo/logo.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { ChooseGameComponent } from './components/choose-game/choose-game.compon
     GamePageComponent,
     SelectPlayersComponent,
     AddPlayerComponent,
-    ChooseGameComponent
+    ChooseGameComponent,
+    LogoComponent
   ],
   providers: [
     PlayersService
