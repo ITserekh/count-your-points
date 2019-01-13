@@ -2,12 +2,7 @@ import {Player} from './player';
  
 export class PlayersService{
  
-    private players: Player[] = [
-      { name: 'Sherlock Holmes', eMail: 'sherlock.holmes@gmail.com' },
-      { name: 'Dr. John Watson', eMail: 'dr.john.watson@gmail.com' },
-      { name: 'Mrs. Stubs', eMail: 'stubbs@gmail.com' },
-      { name: 'Jim Moriarty', eMail: 'jim.moriarty@gmail.com' }
-    ];
+    private players: Player[] = [];
 
     getPlayers(): Player[] {
       return this.players;
