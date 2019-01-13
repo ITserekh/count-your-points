@@ -6,10 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./choose-game.component.scss'],
 })
 export class ChooseGameComponent {
-  games: string[] = ['501', '301'];
+  games: string[] = ['501'];
   selectedGame: string;
 
-  choose(game: string, event: any) {
+  choose(game: string) {
     this.selectedGame = game;
   }
 }
