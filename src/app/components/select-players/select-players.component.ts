@@ -21,10 +21,13 @@ export class SelectPlayersComponent {
   ngOnInit() {
     // get list of players under init this component
     this.players = this.playersService.getPlayers();
+
+    this.isPlayer();
   }
 
   delete(player: Player): void {
     this.playersService.deletePlayer(player);
+    this.isPlayer();
   }
 
   // call when input a seraach query
@@ -45,5 +48,17 @@ export class SelectPlayersComponent {
     dialogConfig.width = '400px';
     //open dialog to add new player
     this.dialog.open(AddPlayerComponent, dialogConfig);
+  }
+
+  // if there is no player create a new one
+  isPlayer() {
+    if (!this.players.length) {
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.disableClose = true;
+      dialogConfig.hasBackdrop = true;
+      dialogConfig.width = '400px';
+      //open dialog to add new player
+      this.dialog.open(AddPlayerComponent, dialogConfig);
+    }
   }
 }

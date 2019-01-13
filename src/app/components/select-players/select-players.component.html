@@ -7,9 +7,6 @@
   </div>
   <div class="players-list">
     <ul>
-      <li class='add-player' *ngIf="add">
-        addPlayer
-      </li>
       <ng-container *ngFor="let player of players">
         <li *ngIf="showItem(player)">
           <span>{{player.name}}</span>
