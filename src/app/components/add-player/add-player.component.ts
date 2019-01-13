@@ -30,7 +30,6 @@ export class AddPlayerComponent {
   // check name length
   checkName() {
     if (this.name.length > 0 && this.name.length < 20) {
-      console.log(this.name.length);
       return true;
     } else {
       console.log('Name is incorrect');

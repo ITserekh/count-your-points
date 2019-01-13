@@ -1,3 +1,4 @@
+<h2 class="first-player" *ngIf="!this.playersService.getPlayers().length">Add a new player to start the game</h2>
 <div class="wrapper">
   <h2>Nickname</h2>
   <input type="text" [(ngModel)]="name">
