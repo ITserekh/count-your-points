@@ -6,6 +6,8 @@ import { MatDialogModule } from "@angular/material";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PlayersService } from './services/players.service';
+import { ThrowService } from './services/throw.service';
+import { Game501Service } from './services/game501.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -16,6 +18,12 @@ import { SelectPlayersComponent  } from './components/select-players/select-play
 import { AddPlayerComponent } from './components/add-player/add-player.component';
 import { ChooseGameComponent } from './components/choose-game/choose-game.component';
 import { LogoComponent } from './components/logo/logo.component';
+import { ThrowsComponent } from './components/throws/throws.component';
+import { ThrowsListComponent } from './components/throws-list/throws-list.component';
+import { ShowPointsComponent } from './components/show-points/show-points.component';
+import { ShowWinnerComponent } from './components/show-winner/show-winner.component'
+
+import { ReversePipe } from './services/reverse.pipe';
 
 @NgModule({
   imports: [
@@ -32,13 +40,22 @@ import { LogoComponent } from './components/logo/logo.component';
     SelectPlayersComponent,
     AddPlayerComponent,
     ChooseGameComponent,
-    LogoComponent
+    LogoComponent,
+    ThrowsComponent,
+    ThrowsListComponent,
+    ReversePipe,
+    ShowPointsComponent,
+    ShowWinnerComponent
   ],
   providers: [
-    PlayersService
+    PlayersService,
+    Game501Service,
+    ThrowService
   ],
   entryComponents: [
-    AddPlayerComponent
+    AddPlayerComponent,
+    ShowPointsComponent,
+    ShowWinnerComponent
   ],
   bootstrap: [AppComponent]
 })
