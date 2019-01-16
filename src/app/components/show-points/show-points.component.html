@@ -3,8 +3,7 @@
   <ul *ngFor="let player of players let numberPlayer = index">
     <h2>{{ player.name }}</h2>
     <li *ngFor="let dart of [1,2,3]">
-      <!-- Dart {{ dart }}: {{ throws[moveNumber][numberPlayer][dart][0] }} x{{throws[moveNumber][numberPlayer][dart][1] }} -->
-      Dart {{ dart }}: {{ throws[moveNumber][numberPlayer][dart][0] }}
+      Dart {{ dart }}: {{ throws[moveNumber][numberPlayer][dart][0] }} x{{throws[moveNumber][numberPlayer][dart][1] }}
     </li>
   </ul>
 </div>
