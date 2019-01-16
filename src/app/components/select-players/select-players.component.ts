@@ -58,7 +58,7 @@ export class SelectPlayersComponent {
       dialogConfig.hasBackdrop = true;
       dialogConfig.width = '400px';
       //open dialog to add new player
-      this.dialog.open(AddPlayerComponent, dialogConfig);
+      setTimeout(() => this.dialog.open(AddPlayerComponent, dialogConfig));
     }
   }
 }
