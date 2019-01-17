@@ -87,7 +87,7 @@ export class Game501Service {
         if (condition === 1) {
           winners.push(playerNumber);
         } else {
-          lastThrows[playerNumber].points = this.throws[lastMoveNumber][playerNumber].points;
+          lastThrows[playerNumber].points = this.throws[lastMoveNumber-1][playerNumber].points;
         }
       }
     });
