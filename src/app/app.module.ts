@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PlayersService } from './services/players.service';
 import { ThrowService } from './services/throw.service';
 import { Game501Service } from './services/game501.service';
+import { Game301Service } from './services/game301.service';
+import { ChooseGameService } from './services/choose-game.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -50,7 +52,9 @@ import { ReversePipe } from './services/reverse.pipe';
   providers: [
     PlayersService,
     Game501Service,
-    ThrowService
+    Game301Service,
+    ThrowService,
+    ChooseGameService
   ],
   entryComponents: [
     AddPlayerComponent,

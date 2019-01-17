@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatDialog, MatDialogConfig } from "@angular/material";
 
 import { Player} from '../../services/player';
 import { PlayersService } from '../../services/players.service';
-import { Game501Service } from '../../services/game501.service'
 import { Throw } from '../../services/throw';
 import { ShowWinnerComponent } from '../show-winner/show-winner.component';
+import { Game } from '../../services/game';
+import { ChooseGameService } from '../../services/choose-game.service';
 
 
 @Component({
@@ -14,15 +15,17 @@ import { ShowWinnerComponent } from '../show-winner/show-winner.component';
   styleUrls: ['./throws.component.scss']
 })
 export class ThrowsComponent {
+  game: Game;
   players: Player[];
   throws: Throw[] = [];
   gameOver: boolean = false;
 
   constructor(private playersService: PlayersService,
-    private game: Game501Service,
+    private chooseGameServise: ChooseGameService,
     private dialog: MatDialog) {}
 
   ngOnInit() {
+    this.game = this.chooseGameServise.getSelectedGame();
     this.players = this.playersService.getPlayers();
     
     this.game.initGame();
@@ -40,7 +43,6 @@ export class ThrowsComponent {
 
   addMove() {
     const winners: number[] = this.game.doMove(this.throws);
-
     // 
     if (winners.length > 0) {
       this.gameOver = true;
