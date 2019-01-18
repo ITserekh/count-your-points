@@ -4,7 +4,7 @@
       <h2>{{ players[i].name }}</h2>
       <ul class="dart" *ngFor="let dart of [1,2,3]">
         <li id="{{ dart }}">
-          <input #points (input)="checkPoint(throw, dart, points)">
+          <input type="number" maxlength="2" min="0"  #points (input)="checkPoint(throw, dart, points)">
           <span *ngFor="let multiplier of [1,2,3]" [ngClass]="{'active': throw[dart][1] == multiplier}" (click)="selectMultiplier(throw, dart, multiplier)">
             {{ multiplier }}x
           </span>

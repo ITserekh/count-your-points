@@ -3,9 +3,10 @@ import { ThrowService } from './throw.service';
 import { Player} from './player';
 import { PlayersService } from './players.service';
 import { Injectable } from '@angular/core';
+import { Game } from './game';
 
 @Injectable()
-export class Game501Service {
+export class Game501Service implements Game {
 
   players: Player[];
   throws: Throw[][] = [];
@@ -37,9 +38,9 @@ export class Game501Service {
     move.forEach(( item, playerNumber) => {
       const previousPoints = this.throws[lastMoveNumber][playerNumber].points;
       const points: number
-      = item[1][0] * item[1][1]
-      + item[2][0] * item[2][1]
-      + item[3][0] * item[3][1];
+        = item[1][0] * item[1][1]
+        + item[2][0] * item[2][1]
+        + item[3][0] * item[3][1];
 
       // if excess of points leave old
       if (previousPoints - points >= 0
@@ -61,7 +62,7 @@ export class Game501Service {
     const lastMoveNumber = this.throws.length - 1;
     const lastThrows: Throw[] = this.throws[lastMoveNumber];
     const points = lastThrows.map(item => item.points);
-    const winners: number[] = []; // array of winners indexes 
+    let winners: number[] = []; // array of winners indexes 
 
     points.forEach((item, playerNumber) => {
       // if player has 0 points check multiplier x2
@@ -91,7 +92,6 @@ export class Game501Service {
         }
       }
     });
-
     if (winners.length > 0) return winners;
 
     // find winners on 20 or 30 moves
@@ -106,8 +106,10 @@ export class Game501Service {
             winners.push(playerNumber);
         }
       });
+      if (lastMoveNumber - 1 === 20 && winners.length > 1) {
+        winners = [];
+      }
     }
-
     return winners;
   }
 }
