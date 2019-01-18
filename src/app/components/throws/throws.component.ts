@@ -60,20 +60,12 @@ export class ThrowsComponent {
   
   // check real numbers of darts target
   checkPoint(currentThrow: Throw, numberDart: any, points: any) {
-    const reg = /^[0-9]*$/;
     const previuosValue = currentThrow[numberDart][0];
-    let condition: boolean = false;
-    if (reg.test(points.value)) {
-      if (points.value.length <= 2) {
-        const tmpPoints = Number(points.value);
-        if (tmpPoints <= 20 || tmpPoints === 25 || tmpPoints === 50) {
-          currentThrow[numberDart][0] = tmpPoints;
-          this.selectMultiplier(currentThrow, numberDart, 1);
-          condition = true;
-        }
-      }
-    } 
-    if (!condition) {
+    const tmpPoints = Number(points.value);
+    if (tmpPoints <= 20 || this.isBullEye(tmpPoints)) {
+      currentThrow[numberDart][0] = tmpPoints;
+      this.selectMultiplier(currentThrow, numberDart, 1);
+    } else {
       if (previuosValue === 0) {
         points.value = '';
       } else {
@@ -91,10 +83,6 @@ export class ThrowsComponent {
   }
 
   isBullEye(points: number): boolean {
-    if (points === 25 || points === 50) {
-      return true;
-    } else {
-      return false;
-    }
+    return (points === 25 || points === 50)
   }
 }
